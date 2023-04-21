@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar cliente</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Editar cliente</h1>
+        <form th:action="@{/clientes/{id}(id=${cliente.id})}" th:object="${cliente}" method="POST">
+            <div class="form-group">
+                <label>Nombre : </label>
+                <input type="text" name="nombre" th:field="*{nombre}" class="form-control" placeholder="Digite el nombre : " required>
+              </div>
+  
+              <div class="form-group">
+                <label>Apellido1 : </label>
+                <input type="text" name="apellido1" th:field="*{apellido1}" class="form-control" placeholder="Digite el primer apellido : " required>
+              </div>
+              <div class="form-group">
+                <label>Apellido2 : </label>
+                <input type="text" name="apellido2" th:field="*{apellido2}" class="form-control" placeholder="Digite el segundo apellido : " required>
+              </div>
+  
+              <div class="form-group">
+                <label>Ciudad : </label>
+                <input type="text" name="ciudad" th:field="*{ciudad}" class="form-control" placeholder="Digite la ciudad : " required>
+              </div>
+              <div class="form-group">
+                <label>Categoria : </label>
+                <input type="text" name="categoria" th:field="*{categoria}" class="form-control" placeholder="Digite la categoria : " required>
+              </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a class="btn btn-secondary" th:href="@{/clientes}">Volver</a>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

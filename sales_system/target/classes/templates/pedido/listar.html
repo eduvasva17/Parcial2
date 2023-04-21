@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Listado de Pedidos</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Listado de Pedidos</h1>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Cantidad</th>
+					<th>Fecha</th>
+					<th>Cliente</th>
+					<th>Vendedor</th>
+					<th>Opciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="pedido : ${pedidos}">
+					<td th:text="${pedido.cantidad}"></td>
+					<td th:text="${pedido.fecha}"></td>
+					<td th:text="${pedido.cliente.nombre}"></td>
+					<td th:text="${pedido.vendedor.nombre}"></td>
+					<td>
+						<a th:href="@{/pedido/ver/{id}(id=${pedido.id})}" class="btn btn-info btn-sm">Ver</a>
+						<a th:href="@{/pedido/editar/{id}(id=${pedido.id})}" class="btn btn-warning btn-sm">Editar</a>
+						<a th:href="@{/pedido/eliminar/{id}(id=${pedido.id})}" class="btn btn-danger btn-sm">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div>
+			<a th:href="@{/nuevo}" class="btn btn-success">Agregar</a>
+			<a th:href="@{/clientes}" class="btn btn-secondary">Clientes</a>
+			<a th:href="@{/vendedores}" class="btn btn-primary">Vendedores</a>
+		</div>
+	</div>
+</body>
+</html>
+
